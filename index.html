@@ -16,10 +16,29 @@
 </head>
 <body>
   <header>
+    <div class="code-journal-header">
+      <h3>Code Journal</h3>
+    </div>
   </header>
   <main>
     <div data-view="entry-form">
+      <form class="new-entry-form">
+        <h2>New Entry</h2>
+        <div class="url-image">
+          <!-- Image will load here -->
+        </div>
+        <label for="entry-title">Title</label>
+        <input
+          name="title"
+          type="text"
+          id="entry-title">
+        <label for="photo-url">Photo URL</label>
+        <input
+          name="photo"
+          type="url"
+          id="photo-url">
 
+      </form>
     </div>
   </main>
   <script src="js/data.js"></script>
