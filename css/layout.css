@@ -16,6 +16,17 @@
 .column-full,
 .column-half {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.url-image {
+  height: 500px;
+}
+
+label {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 @media screen and (min-width: 768px) {
