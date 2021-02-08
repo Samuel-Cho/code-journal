@@ -16,33 +16,48 @@
 </head>
 <body>
   <header>
-    <div class="code-journal-header">
-      <h3>Code Journal</h3>
+    <div class="container">
+      <div class="code-journal-header">
+        <h3>Code Journal</h3>
+      </div>
     </div>
   </header>
   <main>
-    <div data-view="entry-form">
-      <form class="new-entry-form">
-        <h2>New Entry</h2>
-        <div class="url-image">
-          <img class="unloaded-url-image" src="images/placeholder-image-square.jpg" alt="entry image">
-        </div>
-        <label for="entry-form-title">Title</label>
-        <input
-          name="title"
-          type="text"
-          id="entry-form-title">
-        <label for="entry-form-photo-url">Photo URL</label>
-        <input
-          name="photo"
-          type="url"
-          id="entry-form-photo-url">
-        <label for="entry-form-note">Notes</label>
-        <textarea
-          name="note"
-          id="entry-form-note"
-          rows="5"></textarea>
-      </form>
+    <div class="container">
+      <div data-view="entry-form">
+        <form class="new-entry-form">
+          <div class="column-full">
+            <h2>New Entry</h2>
+          </div>
+          <div class="url-image column-full">
+            <img class="unloaded-url-image" src="images/placeholder-image-square.jpg" alt="entry image">
+          </div>
+          <div class="column-half">
+            <label for="entry-form-title">Title</label>
+            <input
+              name="title"
+              type="text"
+              id="entry-form-title">
+          </div>
+          <div class="column-half">
+            <label for="entry-form-photo-url">Photo URL</label>
+            <input
+              name="photo"
+              type="url"
+              id="entry-form-photo-url">
+          </div>
+          <div class="column-full">
+            <label for="entry-form-note">Notes</label>
+            <textarea
+              name="note"
+              id="entry-form-note"
+              rows="5"></textarea>
+          </div>
+          <div class="column-full">
+            <button type="submit">SAVE</button>
+          </div>
+        </form>
+      </div>
     </div>
   </main>
   <script src="js/data.js"></script>
