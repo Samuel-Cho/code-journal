@@ -25,19 +25,23 @@
       <form class="new-entry-form">
         <h2>New Entry</h2>
         <div class="url-image">
-          <!-- Image will load here -->
+          <img class="unloaded-url-image" src="images/placeholder-image-square.jpg" alt="entry image">
         </div>
-        <label for="entry-title">Title</label>
+        <label for="entry-form-title">Title</label>
         <input
           name="title"
           type="text"
-          id="entry-title">
-        <label for="photo-url">Photo URL</label>
+          id="entry-form-title">
+        <label for="entry-form-photo-url">Photo URL</label>
         <input
           name="photo"
           type="url"
-          id="photo-url">
-
+          id="entry-form-photo-url">
+        <label for="entry-form-note">Notes</label>
+        <textarea
+          name="note"
+          id="entry-form-note"
+          rows="5"></textarea>
       </form>
     </div>
   </main>
