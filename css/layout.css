@@ -1,45 +1,54 @@
 .hidden {
-  display: none !important;
+  display: none !important; /* my code below */
 }
 
 .container {
   max-width: 575px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 1.5rem; /* my code below */
 }
 
 .row {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* my code below */
 }
 
 .column-full,
 .column-half {
-  width: 100%;
+  width: 100%; /* my code below */
   display: flex;
   flex-direction: column;
 }
 
 .url-image {
-  height: 500px;
+  height: 300px;
+  object-fit: cover;
 }
 
 label {
-  margin-top: 10px;
+  margin-top: 30px;
   margin-bottom: 10px;
+}
+
+.button-container {
+  margin-top: 30px;
+}
+
+.save-button {
+  width: 50px;
 }
 
 @media screen and (min-width: 768px) {
   .container {
-    max-width: 900px;
+    max-width: 900px; /* my code below */
   }
 
   .column-full,
   .column-half {
-    padding: 0 0.75rem;
+    padding: 0 0.75rem; /* my code below */
   }
 
   .column-half {
-    width: 50%;
+    width: 50%; /* my code below */
   }
 }
