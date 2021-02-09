@@ -21,8 +21,9 @@ function saveNewEntry(event) {
   entryInputs.title = $newEntryForm.elements.title.value;
   entryInputs.photo = $newEntryForm.elements.photo.value;
   entryInputs.note = $newEntryForm.elements.note.value;
-  entryInputs.nextEntryId = data.nextEntryId;
+  entryInputs.entryId = data.nextEntryId;
   data.nextEntryId++;
+  data.entries.push(entryInputs);
 }
 
 $newEntryForm.addEventListener('submit', saveNewEntry);
