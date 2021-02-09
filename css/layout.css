@@ -54,7 +54,6 @@
 
   .row {
     display: flex;
-    flex-wrap: nowrap;
   }
 
   .label {
