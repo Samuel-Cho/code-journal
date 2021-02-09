@@ -56,6 +56,10 @@
     padding-left: 13px;
   }
 
+  main {
+    height: 100vh;
+  }
+
   .row {
     display: flex;
     flex-wrap: nowrap;
