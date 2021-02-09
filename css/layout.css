@@ -26,16 +26,21 @@
 }
 
 label {
-  margin-top: 30px;
+  margin-top: 25px;
   margin-bottom: 10px;
 }
 
-.button-container {
-  margin-top: 30px;
+.column-full.button-container {
+  margin-top: 25px;
+  display: flex;
+  align-items: flex-end;
 }
 
 .save-button {
-  width: 50px;
+  width: 55px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  margin-bottom: 30px;
 }
 
 @media screen and (min-width: 768px) {

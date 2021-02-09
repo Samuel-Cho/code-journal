@@ -1,12 +1,22 @@
 body {
   background-color: #4a2373;
-  font-family: sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 header {
   color: white;
 }
 
+.journal-header {
+  font-weight: 400;
+  font-size: 1rem;
+}
+
 main {
   background-color: #eceaec;
+}
+
+label {
+  font-weight: 600;
+  font-size: 0.9rem;
 }
