@@ -1,7 +1,6 @@
 /* global data */
 /* exported data */
 
-// Event listener for image url
 var $urlImage = document.querySelector('.url-image');
 var $url = document.querySelector('#entry-form-photo-url');
 
@@ -12,7 +11,6 @@ function updateEntryImage(event) {
 
 $url.addEventListener('input', updateEntryImage);
 
-// Event listener for submit event
 var $newEntryForm = document.querySelector('.new-entry-form');
 
 function saveNewEntry(event) {

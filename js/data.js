@@ -7,7 +7,6 @@ var data = {
   nextEntryId: 1
 };
 
-// Saving to local storage
 var previousDataJSON = localStorage.getItem('data-storage');
 if (previousDataJSON !== null) {
   data = JSON.parse(previousDataJSON);
