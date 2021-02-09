@@ -17,4 +17,4 @@ function storeData(event) {
   localStorage.setItem('data-storage', dataJSON);
 }
 
-window.addEventListener('unload', storeData);
+window.addEventListener('beforeunload', storeData);
