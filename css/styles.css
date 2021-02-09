@@ -20,3 +20,13 @@ label {
   font-weight: 600;
   font-size: 0.9rem;
 }
+
+#entry-form-title,
+#entry-form-photo-url,
+#entry-form-note {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
