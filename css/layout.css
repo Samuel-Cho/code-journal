@@ -1,7 +1,3 @@
-.hidden {
-  display: none !important; /* my code below */
-}
-
 .container {
   max-width: 575px;
   margin: 0 auto;
