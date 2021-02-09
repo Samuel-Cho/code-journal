@@ -8,6 +8,10 @@
   padding: 0 1.5rem; /* my code below */
 }
 
+.code-journal-header {
+  padding-left: 1px;
+}
+
 .row {
   display: flex;
   flex-wrap: wrap; /* my code below */
@@ -25,7 +29,7 @@
   object-fit: cover;
 }
 
-label {
+.label {
   margin-top: 25px;
   margin-bottom: 10px;
 }
@@ -46,6 +50,25 @@ label {
 @media screen and (min-width: 768px) {
   .container {
     max-width: 900px; /* my code below */
+  }
+
+  .code-journal-header {
+    padding-left: 13px;
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .label {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+
+  .url-image-container,
+  #entry-form-title {
+    margin-bottom: 25px;
   }
 
   .column-full,
