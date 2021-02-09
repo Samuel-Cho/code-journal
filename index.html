@@ -10,14 +10,61 @@
     crossorigin="anonymous"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
     integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <header>
+    <div class="container">
+      <div class="code-journal-header">
+        <h3 class="journal-header">Code Journal</h3>
+      </div>
+    </div>
   </header>
   <main>
+    <div class="container">
+      <div data-view="entry-form">
+        <form class="new-entry-form">
+          <div class="column-full">
+            <h2>New Entry</h2>
+          </div>
+          <div class="row">
+            <div class="url-image-container column-half">
+              <img class="url-image" src="images/placeholder-image-square.jpg" alt="entry image">
+            </div>
+            <div class="column-half">
+              <label class="label" for="entry-form-title">Title</label>
+              <input
+                required
+                name="title"
+                type="text"
+                id="entry-form-title">
+              <label class="label" for="entry-form-photo-url">Photo URL</label>
+              <input
+                required
+                name="photo"
+                type="url"
+                id="entry-form-photo-url">
+            </div>
+          </div>
+          <div class="row">
+            <div class="column-full">
+              <label class="label" for="entry-form-note">Notes</label>
+              <textarea
+                required
+                name="note"
+                id="entry-form-note"
+                rows="6"></textarea>
+            </div>
+            <div class="column-full button-container">
+              <button class="save-button" type="submit">SAVE</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
