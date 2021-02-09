@@ -24,6 +24,8 @@ function saveNewEntry(event) {
   entryInputs.entryId = data.nextEntryId;
   data.nextEntryId++;
   data.entries.push(entryInputs);
+  $newEntryForm.reset();
+  $urlImage.setAttribute('src', 'images/placeholder-image-square.jpg');
 }
 
 $newEntryForm.addEventListener('submit', saveNewEntry);
