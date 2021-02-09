@@ -29,4 +29,19 @@ label {
   font-size: 0.9rem;
   padding-top: 5px;
   padding-bottom: 5px;
+  border: 2px solid lightgray;
+  border-radius: 4px;
+}
+
+#entry-form-title:focus,
+#entry-form-photo-url:focus,
+#entry-form-note:focus {
+  outline-color: #4a2373;
+}
+
+.save-button {
+  color: white;
+  background-color: #4a2373;
+  border-style: none;
+  border-radius: 3px;
 }
