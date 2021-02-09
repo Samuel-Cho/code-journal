@@ -45,3 +45,7 @@ label {
   border-style: none;
   border-radius: 3px;
 }
+
+.save-button:hover {
+  cursor: pointer;
+}
