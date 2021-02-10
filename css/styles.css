@@ -34,6 +34,12 @@ textarea:focus {
   outline-color: #4a2373;
 }
 
+.entries-anchor {
+  color: white;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
 .save-button,
 .new-entry-button {
   color: white;
@@ -43,7 +49,8 @@ textarea:focus {
 }
 
 .save-button:hover,
-.new-entry-button:hover {
+.new-entry-button:hover,
+.entries-anchor:hover {
   cursor: pointer;
 }
 

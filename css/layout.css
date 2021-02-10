@@ -12,9 +12,13 @@ header {
   height: 60px;
 }
 
-.code-journal-header {
+.header-container {
   display: flex;
-  align-content: center;
+  align-items: center;
+}
+
+.entries-link {
+  margin-left: 30px;
 }
 
 .row {
