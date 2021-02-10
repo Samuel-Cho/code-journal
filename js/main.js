@@ -87,3 +87,21 @@ function loadEntries(event) {
 }
 
 window.addEventListener('DOMContentLoaded', loadEntries);
+
+var $newEntryButton = document.querySelector('.new-entry-button');
+var $entriesAnchor = document.querySelector('.entries-anchor');
+var $viewEntryForm = document.querySelector('.view-entry-form');
+var $viewEntries = document.querySelector('.view-entries');
+
+function viewEntryForm(event) {
+  $viewEntryForm.className = 'view-entry-form';
+  $viewEntries.className = 'hidden view-entries';
+}
+
+function viewEntries(event) {
+  $viewEntryForm.className = 'hidden view-entry-form';
+  $viewEntries.className = 'view-entries';
+}
+
+$newEntryButton.addEventListener('click', viewEntryForm);
+$entriesAnchor.addEventListener('click', viewEntries);
