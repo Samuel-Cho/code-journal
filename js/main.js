@@ -24,16 +24,16 @@ function saveNewEntry(event) {
   data.entries.unshift(entryInputs);
   $newEntryForm.reset();
   $urlImage.setAttribute('src', 'images/placeholder-image-square.jpg');
+  createEntry(data.entries[0]);
 }
 
 $newEntryForm.addEventListener('submit', saveNewEntry);
 
-function createEntry(entry) {
-  var $ulEntries = document.querySelector('.entries-list');
+var $ulEntries = document.querySelector('.entries-list');
 
+function createEntry(entry) {
   var liJournalEntry = document.createElement('li');
   liJournalEntry.setAttribute('class', 'journal-entry');
-  $ulEntries.appendChild(liJournalEntry);
 
   var divRow = document.createElement('div');
   divRow.setAttribute('class', 'row');
@@ -78,10 +78,12 @@ function createEntry(entry) {
   var paragraphText = document.createTextNode(entry.note);
   paragraphEntry.appendChild(paragraphText);
   divEntryParagraph.appendChild(paragraphEntry);
+
+  $ulEntries.prepend(liJournalEntry);
 }
 
 function loadEntries(event) {
-  for (var i = 0; i < data.entries.length; i++) {
+  for (var i = data.entries.length - 1; i >= 0; i--) {
     createEntry(data.entries[i]);
   }
 }
