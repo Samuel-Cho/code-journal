@@ -8,6 +8,15 @@
   padding: 0 1.5rem; /* my code below */
 }
 
+header {
+  height: 60px;
+}
+
+.code-journal-header {
+  display: flex;
+  align-content: center;
+}
+
 .row {
   display: flex;
   flex-wrap: wrap; /* my code below */
@@ -77,12 +86,9 @@ li {
     max-width: 900px; /* my code below */
   }
 
-  .code-journal-header {
+  .code-journal-header,
+  .entries-heading {
     padding-left: 13px;
-  }
-
-  main {
-    height: 100vh;
   }
 
   .row {

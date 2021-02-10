@@ -1,19 +1,16 @@
 body {
-  background-color: #4a2373;
+  background-color: #eceaec;
   font-family: 'Open Sans', sans-serif;
 }
 
 header {
   color: white;
+  background-color: #4a2373;
 }
 
 .journal-header {
   font-weight: 400;
   font-size: 1rem;
-}
-
-main {
-  background-color: #eceaec;
 }
 
 label {
