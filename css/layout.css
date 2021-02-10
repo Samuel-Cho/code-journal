@@ -52,12 +52,24 @@
   align-items: center;
 }
 
+ul {
+  margin-top: 0;
+}
+
+li {
+  margin-bottom: 40px;
+}
+
 .new-entry-button {
   margin-top: 30px;
 }
 
 .entries-list {
   padding-left: 0;
+}
+
+.entry-image-container {
+  margin-bottom: 10px;
 }
 
 @media screen and (min-width: 768px) {
