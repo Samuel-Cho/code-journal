@@ -25,6 +25,7 @@ function saveNewEntry(event) {
   $newEntryForm.reset();
   $urlImage.setAttribute('src', 'images/placeholder-image-square.jpg');
   createEntry(data.entries[0]);
+  viewEntries();
 }
 
 $newEntryForm.addEventListener('submit', saveNewEntry);
