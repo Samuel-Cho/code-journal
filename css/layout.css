@@ -20,8 +20,10 @@
   flex-direction: column;
 }
 
-.url-image {
+.url-image,
+.entry-image {
   height: 300px;
+  width: 100%;
   object-fit: cover;
 }
 
@@ -36,11 +38,26 @@
   align-items: flex-end;
 }
 
-.save-button {
+.save-button,
+.new-entry-button {
   width: 60px;
   padding-top: 6px;
   padding-bottom: 6px;
   margin-bottom: 30px;
+}
+
+.title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.new-entry-button {
+  margin-top: 30px;
+}
+
+.entries-list {
+  padding-left: 0;
 }
 
 @media screen and (min-width: 768px) {
