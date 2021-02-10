@@ -79,3 +79,11 @@ function createEntry(entry) {
   paragraphEntry.appendChild(paragraphText);
   divEntryParagraph.appendChild(paragraphEntry);
 }
+
+function loadEntries(event) {
+  for (var i = 0; i < data.entries.length; i++) {
+    createEntry(data.entries[i]);
+  }
+}
+
+window.addEventListener('DOMContentLoaded', loadEntries);
