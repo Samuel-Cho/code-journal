@@ -113,4 +113,8 @@ li {
   .column-half {
     width: 50%; /* my code below */
   }
+
+  .new-entry-button {
+    margin-right: 11px;
+  }
 }

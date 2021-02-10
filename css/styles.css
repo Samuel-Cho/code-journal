@@ -34,7 +34,8 @@ textarea:focus {
   outline-color: #4a2373;
 }
 
-.save-button {
+.save-button,
+.new-entry-button {
   color: white;
   background-color: #4a2373;
   border-style: none;
