@@ -34,7 +34,8 @@ textarea:focus {
   outline-color: #4a2373;
 }
 
-.entries-anchor {
+.entries-anchor,
+.new-entry-button {
   color: white;
   font-size: 0.9rem;
   text-decoration: none;
