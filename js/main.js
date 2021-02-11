@@ -99,12 +99,22 @@ var $viewEntries = document.querySelector('.view-entries');
 function viewEntryForm(event) {
   $viewEntryForm.className = 'view-entry-form';
   $viewEntries.className = 'hidden view-entries';
+  data.view = 'entry-form';
 }
 
 function viewEntries(event) {
   $viewEntryForm.className = 'hidden view-entry-form';
   $viewEntries.className = 'view-entries';
+  data.view = 'entries';
 }
 
 $newEntryButton.addEventListener('click', viewEntryForm);
 $entriesAnchor.addEventListener('click', viewEntries);
+
+if (data.view === 'entry-form') {
+  $viewEntryForm.className = 'view-entry-form';
+  $viewEntries.className = 'hidden view-entries';
+} else {
+  $viewEntryForm.className = 'hidden view-entry-form';
+  $viewEntries.className = 'view-entries';
+}
