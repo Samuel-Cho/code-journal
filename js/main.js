@@ -72,6 +72,11 @@ function createEntry(entry) {
   headingThree.appendChild(entryHeading);
   divEntryTitle.appendChild(headingThree);
 
+  // icon code
+  var iconElement = document.createElement('i');
+  iconElement.setAttribute('class', 'fas fa-pencil-alt');
+  divEntryTitle.appendChild(iconElement);
+
   var divEntryParagraph = document.createElement('div');
   divEntryParagraph.setAttribute('class', 'entry-paragraph');
   divEntryTextContainer.appendChild(divEntryParagraph);
