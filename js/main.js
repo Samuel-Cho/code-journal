@@ -73,7 +73,6 @@ function createEntry(entry) {
   headingThree.appendChild(entryHeading);
   divEntryTitle.appendChild(headingThree);
 
-  // icon code
   var iconElement = document.createElement('i');
   iconElement.setAttribute('class', 'fas fa-pencil-alt');
   divEntryTitle.appendChild(iconElement);
@@ -126,3 +125,11 @@ if (data.view === 'entry-form') {
   $viewEntryForm.className = 'hidden view-entry-form';
   $viewEntries.className = 'view-entries';
 }
+
+function editEntry(event) {
+  if (event.target.matches('i')) {
+    //
+  }
+}
+
+$ulEntries.addEventListener('click', editEntry);
