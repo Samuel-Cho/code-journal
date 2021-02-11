@@ -107,7 +107,7 @@ function viewEntryForm(event) {
   $viewEntryForm.className = 'view-entry-form';
   $viewEntries.className = 'hidden view-entries';
   data.view = 'entry-form';
-
+  $formHeading.textContent = 'New Entry';
 }
 
 function viewEntries(event) {
@@ -127,13 +127,12 @@ if (data.view === 'entry-form') {
   $viewEntries.className = 'view-entries';
 }
 
-// var $formHeading = document.querySelector('.form-heading');
+var $formHeading = document.querySelector('.form-heading');
 
 function viewEditForm(event) {
   $viewEntryForm.className = 'view-entry-form';
   $viewEntries.className = 'hidden view-entries';
-  data.view = 'entry-form';
-
+  $formHeading.textContent = 'Edit Entry';
 }
 
 function editEntry(event) {
