@@ -114,6 +114,8 @@ function viewEntries(event) {
   $viewEntryForm.className = 'hidden view-entry-form';
   $viewEntries.className = 'view-entries';
   data.view = 'entries';
+  // $newEntryForm.reset();
+  // $urlImage.setAttribute('src', 'images/placeholder-image-square.jpg');
 }
 
 $newEntryButton.addEventListener('click', viewEntryForm);
@@ -143,12 +145,17 @@ function editEntry(event) {
     for (var j = 0; j < data.entries.length; j++) {
       if (data.entries[j].entryId.toString() === dataEntryId) {
         data.editing = data.entries[j];
+        $newEntryForm.elements.title.value = data.editing.title;
+        $newEntryForm.elements.photo.value = data.editing.photo;
+        $urlImage.setAttribute('src', data.editing.photo);
+        $newEntryForm.elements.note.value = data.editing.note;
+        break;
       }
     }
   }
 }
 
-// Find the matching entry object in the data model and assign it to the
-// data model's editing property if an edit icon was clicked.
+// Pre-populate the entry form with the clicked entry's values from the object
+// found in the data model.
 
 $ulEntries.addEventListener('click', editEntry);
