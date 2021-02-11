@@ -24,7 +24,8 @@ function saveNewEntry(event) {
   data.entries.unshift(entryInputs);
   $newEntryForm.reset();
   $urlImage.setAttribute('src', 'images/placeholder-image-square.jpg');
-  createEntry(data.entries[0]);
+  var newEntryNode = createEntry(data.entries[0]);
+  $ulEntries.prepend(newEntryNode);
   viewEntries();
 }
 
@@ -80,12 +81,13 @@ function createEntry(entry) {
   paragraphEntry.appendChild(paragraphText);
   divEntryParagraph.appendChild(paragraphEntry);
 
-  $ulEntries.prepend(liJournalEntry);
+  return liJournalEntry;
 }
 
 function loadEntries(event) {
   for (var i = data.entries.length - 1; i >= 0; i--) {
-    createEntry(data.entries[i]);
+    var entryNode = createEntry(data.entries[i]);
+    $ulEntries.prepend(entryNode);
   }
 }
 
