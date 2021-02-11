@@ -36,6 +36,7 @@ var $ulEntries = document.querySelector('.entries-list');
 function createEntry(entry) {
   var liJournalEntry = document.createElement('li');
   liJournalEntry.setAttribute('class', 'journal-entry');
+  liJournalEntry.setAttribute('data-entry-id', entry.entryId);
 
   var divRow = document.createElement('div');
   divRow.setAttribute('class', 'row');
