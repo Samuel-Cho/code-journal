@@ -15,19 +15,35 @@ var $newEntryForm = document.querySelector('.new-entry-form');
 
 function saveNewEntry(event) {
   event.preventDefault();
-  var entryInputs = {};
-  entryInputs.title = $newEntryForm.elements.title.value;
-  entryInputs.photo = $newEntryForm.elements.photo.value;
-  entryInputs.note = $newEntryForm.elements.note.value;
-  entryInputs.entryId = data.nextEntryId;
-  data.nextEntryId++;
-  data.entries.unshift(entryInputs);
-  $newEntryForm.reset();
+  if (data.editing === null) {
+    var entryInputs = {};
+    entryInputs.title = $newEntryForm.elements.title.value;
+    entryInputs.photo = $newEntryForm.elements.photo.value;
+    entryInputs.note = $newEntryForm.elements.note.value;
+    data.entries.unshift(entryInputs);
+    entryInputs.entryId = data.nextEntryId;
+    data.nextEntryId++;
+    var newEntryNode = createEntry(data.entries[0]);
+    $ulEntries.prepend(newEntryNode);
+  } else {
+    data.editing.title = $newEntryForm.elements.title.value;
+    data.editing.photo = $newEntryForm.elements.photo.value;
+    data.editing.note = $newEntryForm.elements.note.value;
+    for (var k = 0; k < data.entries.length; k++) {
+      if (data.entries[k].entryId === data.editing.entryId) {
+        data.entries[k] = data.editing;
+        break;
+      }
+    }
+  }
   $urlImage.setAttribute('src', 'images/placeholder-image-square.jpg');
-  var newEntryNode = createEntry(data.entries[0]);
-  $ulEntries.prepend(newEntryNode);
+  $newEntryForm.reset();
+  data.editing = null;
   viewEntries();
 }
+// if (data.editing !== null)
+// Update the entry form's submit handler function to conditionally add a
+// new entry object or update the existing one.
 
 $newEntryForm.addEventListener('submit', saveNewEntry);
 
@@ -108,6 +124,7 @@ function viewEntryForm(event) {
   $viewEntries.className = 'hidden view-entries';
   data.view = 'entry-form';
   $formHeading.textContent = 'New Entry';
+  data.editing = null;
 }
 
 function viewEntries(event) {
@@ -116,6 +133,7 @@ function viewEntries(event) {
   data.view = 'entries';
   $newEntryForm.reset();
   $urlImage.setAttribute('src', 'images/placeholder-image-square.jpg');
+  data.editing = null;
 }
 
 $newEntryButton.addEventListener('click', viewEntryForm);
@@ -154,8 +172,5 @@ function editEntry(event) {
     }
   }
 }
-
-// Pre-populate the entry form with the clicked entry's values from the object
-// found in the data model.
 
 $ulEntries.addEventListener('click', editEntry);
