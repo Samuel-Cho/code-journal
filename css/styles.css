@@ -1,19 +1,16 @@
 body {
-  background-color: #4a2373;
+  background-color: #eceaec;
   font-family: 'Open Sans', sans-serif;
 }
 
 header {
   color: white;
+  background-color: #4a2373;
 }
 
 .journal-header {
   font-weight: 400;
   font-size: 1rem;
-}
-
-main {
-  background-color: #eceaec;
 }
 
 label {
@@ -37,13 +34,27 @@ textarea:focus {
   outline-color: #4a2373;
 }
 
-.save-button {
+.entries-anchor,
+.new-entry-button {
+  color: white;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.save-button,
+.new-entry-button {
   color: white;
   background-color: #4a2373;
   border-style: none;
   border-radius: 3px;
 }
 
-.save-button:hover {
+.save-button:hover,
+.new-entry-button:hover,
+.entries-anchor:hover {
   cursor: pointer;
+}
+
+.entries-list {
+  list-style: none;
 }

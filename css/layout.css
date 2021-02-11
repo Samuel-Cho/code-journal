@@ -1,7 +1,24 @@
+.hidden {
+  display: none !important; /* my code below */
+}
+
 .container {
   max-width: 575px;
   margin: 0 auto;
   padding: 0 1.5rem; /* my code below */
+}
+
+header {
+  height: 60px;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+}
+
+.nav-link {
+  margin-left: 30px;
 }
 
 .row {
@@ -16,8 +33,10 @@
   flex-direction: column;
 }
 
-.url-image {
+.url-image,
+.entry-image {
   height: 300px;
+  width: 100%;
   object-fit: cover;
 }
 
@@ -32,11 +51,39 @@
   align-items: flex-end;
 }
 
-.save-button {
+.save-button,
+.new-entry-button {
   width: 60px;
   padding-top: 6px;
   padding-bottom: 6px;
   margin-bottom: 30px;
+}
+
+.new-entry-button {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+ul {
+  margin-top: 0;
+}
+
+li {
+  margin-bottom: 40px;
+}
+
+.entries-list {
+  padding-left: 0;
+}
+
+.entry-image-container {
+  margin-bottom: 10px;
 }
 
 @media screen and (min-width: 768px) {
@@ -44,12 +91,9 @@
     max-width: 900px; /* my code below */
   }
 
-  .code-journal-header {
+  .code-journal-header,
+  .entries-heading {
     padding-left: 13px;
-  }
-
-  main {
-    height: 100vh;
   }
 
   .row {
@@ -73,5 +117,9 @@
 
   .column-half {
     width: 50%; /* my code below */
+  }
+
+  .new-entry-button {
+    margin-right: 11px;
   }
 }
