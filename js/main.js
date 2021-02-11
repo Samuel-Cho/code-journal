@@ -114,8 +114,8 @@ function viewEntries(event) {
   $viewEntryForm.className = 'hidden view-entry-form';
   $viewEntries.className = 'view-entries';
   data.view = 'entries';
-  // $newEntryForm.reset();
-  // $urlImage.setAttribute('src', 'images/placeholder-image-square.jpg');
+  $newEntryForm.reset();
+  $urlImage.setAttribute('src', 'images/placeholder-image-square.jpg');
 }
 
 $newEntryButton.addEventListener('click', viewEntryForm);
