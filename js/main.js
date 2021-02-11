@@ -138,7 +138,17 @@ function viewEditForm(event) {
 function editEntry(event) {
   if (event.target.matches('i')) {
     viewEditForm();
+    var closestEntry = event.target.closest('.journal-entry');
+    var dataEntryId = closestEntry.getAttribute('data-entry-id');
+    for (var j = 0; j < data.entries.length; j++) {
+      if (data.entries[j].entryId.toString() === dataEntryId) {
+        data.editing = data.entries[j];
+      }
+    }
   }
 }
+
+// Find the matching entry object in the data model and assign it to the
+// data model's editing property if an edit icon was clicked.
 
 $ulEntries.addEventListener('click', editEntry);
