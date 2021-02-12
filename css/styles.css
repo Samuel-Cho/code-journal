@@ -35,10 +35,21 @@ textarea:focus {
 }
 
 .entries-anchor,
+.new-entry-button,
+.delete-button {
+  font-size: 0.9rem;
+}
+
+.entries-anchor,
 .new-entry-button {
   color: white;
-  font-size: 0.9rem;
   text-decoration: none;
+}
+
+.delete-button {
+  background-color: #eceaec;
+  color: rgb(224, 111, 111);
+  text-decoration: underline;
 }
 
 .save-button,
@@ -57,7 +68,8 @@ textarea:focus {
 .save-button:hover,
 .new-entry-button:hover,
 .entries-anchor:hover,
-.fas.fa-pencil-alt:hover {
+.fas.fa-pencil-alt:hover,
+.delete-button:hover {
   cursor: pointer;
 }
 
