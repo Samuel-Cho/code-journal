@@ -92,6 +92,10 @@ li {
   align-items: center;
 }
 
+.journal-entry-title {
+  max-width: 475px;
+}
+
 @media screen and (min-width: 768px) {
   .container {
     max-width: 900px; /* my code below */
@@ -127,5 +131,9 @@ li {
 
   .new-entry-button {
     margin-right: 11px;
+  }
+
+  .journal-entry-title {
+    max-width: 330px;
   }
 }

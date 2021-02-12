@@ -91,6 +91,7 @@ function createEntry(entry) {
   divEntryTextContainer.appendChild(divEntryTitle);
 
   var headingThree = document.createElement('h3');
+  headingThree.setAttribute('class', 'journal-entry-title');
   var entryHeading = document.createTextNode(entry.title);
   headingThree.appendChild(entryHeading);
   divEntryTitle.appendChild(headingThree);
