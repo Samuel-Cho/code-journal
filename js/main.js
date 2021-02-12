@@ -184,3 +184,9 @@ function editEntry(event) {
 
 $ulEntries.addEventListener('click', editEntry);
 var $deleteButton = document.querySelector('.delete-button');
+
+function deleteModal(event) {
+
+}
+
+$deleteButton.addEventListener('click', deleteModal);
