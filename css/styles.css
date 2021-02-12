@@ -49,9 +49,15 @@ textarea:focus {
   border-radius: 3px;
 }
 
+.fas.fa-pencil-alt {
+  color: #4a2373;
+  font-size: 1.5rem;
+}
+
 .save-button:hover,
 .new-entry-button:hover,
-.entries-anchor:hover {
+.entries-anchor:hover,
+.fas.fa-pencil-alt:hover {
   cursor: pointer;
 }
 

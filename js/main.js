@@ -15,17 +15,39 @@ var $newEntryForm = document.querySelector('.new-entry-form');
 
 function saveNewEntry(event) {
   event.preventDefault();
-  var entryInputs = {};
-  entryInputs.title = $newEntryForm.elements.title.value;
-  entryInputs.photo = $newEntryForm.elements.photo.value;
-  entryInputs.note = $newEntryForm.elements.note.value;
-  entryInputs.entryId = data.nextEntryId;
-  data.nextEntryId++;
-  data.entries.unshift(entryInputs);
-  $newEntryForm.reset();
+  if (data.editing === null) {
+    var entryInputs = {};
+    entryInputs.title = $newEntryForm.elements.title.value;
+    entryInputs.photo = $newEntryForm.elements.photo.value;
+    entryInputs.note = $newEntryForm.elements.note.value;
+    data.entries.unshift(entryInputs);
+    entryInputs.entryId = data.nextEntryId;
+    data.nextEntryId++;
+    var newEntryNode = createEntry(data.entries[0]);
+    $ulEntries.prepend(newEntryNode);
+  } else {
+    data.editing.title = $newEntryForm.elements.title.value;
+    data.editing.photo = $newEntryForm.elements.photo.value;
+    data.editing.note = $newEntryForm.elements.note.value;
+    for (var k = 0; k < data.entries.length; k++) {
+      if (data.entries[k].entryId === data.editing.entryId) {
+        data.entries[k] = data.editing;
+        break;
+      }
+    }
+    var editEntryNode = createEntry(data.editing);
+    var $journalNodeList = document.querySelectorAll('.journal-entry');
+    for (var x = 0; x < $journalNodeList.length; x++) {
+      var journalEntryId = $journalNodeList[x].getAttribute('data-entry-id');
+      if (journalEntryId === data.editing.entryId.toString()) {
+        $journalNodeList[x].replaceWith(editEntryNode);
+        break;
+      }
+    }
+  }
   $urlImage.setAttribute('src', 'images/placeholder-image-square.jpg');
-  var newEntryNode = createEntry(data.entries[0]);
-  $ulEntries.prepend(newEntryNode);
+  $newEntryForm.reset();
+  data.editing = null;
   viewEntries();
 }
 
@@ -36,6 +58,7 @@ var $ulEntries = document.querySelector('.entries-list');
 function createEntry(entry) {
   var liJournalEntry = document.createElement('li');
   liJournalEntry.setAttribute('class', 'journal-entry');
+  liJournalEntry.setAttribute('data-entry-id', entry.entryId);
 
   var divRow = document.createElement('div');
   divRow.setAttribute('class', 'row');
@@ -68,9 +91,14 @@ function createEntry(entry) {
   divEntryTextContainer.appendChild(divEntryTitle);
 
   var headingThree = document.createElement('h3');
+  headingThree.setAttribute('class', 'journal-entry-title');
   var entryHeading = document.createTextNode(entry.title);
   headingThree.appendChild(entryHeading);
   divEntryTitle.appendChild(headingThree);
+
+  var iconElement = document.createElement('i');
+  iconElement.setAttribute('class', 'fas fa-pencil-alt');
+  divEntryTitle.appendChild(iconElement);
 
   var divEntryParagraph = document.createElement('div');
   divEntryParagraph.setAttribute('class', 'entry-paragraph');
@@ -102,12 +130,17 @@ function viewEntryForm(event) {
   $viewEntryForm.className = 'view-entry-form';
   $viewEntries.className = 'hidden view-entries';
   data.view = 'entry-form';
+  $formHeading.textContent = 'New Entry';
+  data.editing = null;
 }
 
 function viewEntries(event) {
   $viewEntryForm.className = 'hidden view-entry-form';
   $viewEntries.className = 'view-entries';
   data.view = 'entries';
+  $newEntryForm.reset();
+  $urlImage.setAttribute('src', 'images/placeholder-image-square.jpg');
+  data.editing = null;
 }
 
 $newEntryButton.addEventListener('click', viewEntryForm);
@@ -120,3 +153,31 @@ if (data.view === 'entry-form') {
   $viewEntryForm.className = 'hidden view-entry-form';
   $viewEntries.className = 'view-entries';
 }
+
+var $formHeading = document.querySelector('.form-heading');
+
+function viewEditForm(event) {
+  $viewEntryForm.className = 'view-entry-form';
+  $viewEntries.className = 'hidden view-entries';
+  $formHeading.textContent = 'Edit Entry';
+}
+
+function editEntry(event) {
+  if (event.target.matches('i')) {
+    viewEditForm();
+    var closestEntry = event.target.closest('.journal-entry');
+    var dataEntryId = closestEntry.getAttribute('data-entry-id');
+    for (var j = 0; j < data.entries.length; j++) {
+      if (data.entries[j].entryId.toString() === dataEntryId) {
+        data.editing = data.entries[j];
+        $newEntryForm.elements.title.value = data.editing.title;
+        $newEntryForm.elements.photo.value = data.editing.photo;
+        $urlImage.setAttribute('src', data.editing.photo);
+        $newEntryForm.elements.note.value = data.editing.note;
+        break;
+      }
+    }
+  }
+}
+
+$ulEntries.addEventListener('click', editEntry);
