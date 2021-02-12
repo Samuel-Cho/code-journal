@@ -35,15 +35,21 @@ function saveNewEntry(event) {
         break;
       }
     }
+    var editEntryNode = createEntry(data.editing);
+    var $journalNodeList = document.querySelectorAll('.journal-entry');
+    for (var x = 0; x < $journalNodeList.length; x++) {
+      var journalEntryId = $journalNodeList[x].getAttribute('data-entry-id');
+      if (journalEntryId === data.editing.entryId.toString()) {
+        $journalNodeList[x].replaceWith(editEntryNode);
+        break;
+      }
+    }
   }
   $urlImage.setAttribute('src', 'images/placeholder-image-square.jpg');
   $newEntryForm.reset();
   data.editing = null;
   viewEntries();
 }
-// if (data.editing !== null)
-// Update the entry form's submit handler function to conditionally add a
-// new entry object or update the existing one.
 
 $newEntryForm.addEventListener('submit', saveNewEntry);
 
