@@ -137,6 +137,7 @@ function viewEntryForm(event) {
 function viewEntries(event) {
   $viewEntryForm.className = 'hidden view-entry-form';
   $viewEntries.className = 'view-entries';
+  $deleteButton.className = 'invisible delete-button';
   data.view = 'entries';
   $newEntryForm.reset();
   $urlImage.setAttribute('src', 'images/placeholder-image-square.jpg');
@@ -159,6 +160,7 @@ var $formHeading = document.querySelector('.form-heading');
 function viewEditForm(event) {
   $viewEntryForm.className = 'view-entry-form';
   $viewEntries.className = 'hidden view-entries';
+  $deleteButton.className = 'delete-button';
   $formHeading.textContent = 'Edit Entry';
 }
 
@@ -181,3 +183,4 @@ function editEntry(event) {
 }
 
 $ulEntries.addEventListener('click', editEntry);
+var $deleteButton = document.querySelector('.delete-button');

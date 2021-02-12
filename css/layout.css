@@ -53,6 +53,10 @@ header {
   align-items: center;
 }
 
+.invisible {
+  visibility: hidden;
+}
+
 .delete-button {
   border-style: none;
   width: 80px;
