@@ -8,6 +8,10 @@ header {
   background-color: #4a2373;
 }
 
+.modal-container {
+  background: rgba(0, 0, 0, 0.7);
+}
+
 .journal-header {
   font-weight: 400;
   font-size: 1rem;

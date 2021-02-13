@@ -183,10 +183,13 @@ function editEntry(event) {
 }
 
 $ulEntries.addEventListener('click', editEntry);
+
 var $deleteButton = document.querySelector('.delete-button');
+$deleteButton.addEventListener('click', deleteModal);
 
 function deleteModal(event) {
+  $modalView.className = 'modal-view';
 
 }
 
-$deleteButton.addEventListener('click', deleteModal);
+var $modalView = document.querySelector('.modal-view');
