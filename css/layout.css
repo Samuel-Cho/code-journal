@@ -32,9 +32,39 @@ header {
 .modal-container {
   position: absolute;
   height: 100%;
-  width: 550px;
+  width: 100%;
+
+  /* width: 550px; */
   top: 0;
   left: 0;
+  display: flex;
+  justify-content: center;
+
+  /* align-items: center; */
+}
+
+.content-container {
+  background-color: white;
+  width: 470px;
+  height: 170px;
+  text-align: center;
+  padding: 10px 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal-button-container {
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+  margin-top: 30px;
+}
+
+.cancel-button,
+.confirm-button {
+  border-style: none;
+  padding: 9px 15px;
 }
 
 .row {

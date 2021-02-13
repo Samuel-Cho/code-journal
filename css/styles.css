@@ -12,6 +12,27 @@ header {
   background: rgba(0, 0, 0, 0.7);
 }
 
+.content-container {
+  font-weight: 600;
+  font-size: 1.2rem;
+  border-radius: 4px;
+}
+
+.cancel-button,
+.confirm-button {
+  border-radius: 4px;
+  font-size: 1.05rem;
+}
+
+.cancel-button {
+  background-color: lightgray;
+}
+
+.confirm-button {
+  background-color: red;
+  color: white;
+}
+
 .journal-header {
   font-weight: 400;
   font-size: 1rem;
@@ -73,7 +94,9 @@ textarea:focus {
 .new-entry-button:hover,
 .entries-anchor:hover,
 .fas.fa-pencil-alt:hover,
-.delete-button:hover {
+.delete-button:hover,
+.cancel-button:hover,
+.confirm-button:hover {
   cursor: pointer;
 }
 
