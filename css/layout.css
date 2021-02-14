@@ -194,4 +194,8 @@ li {
   .journal-entry-title {
     max-width: 330px;
   }
+
+  .modal-container {
+    height: 100vh;
+  }
 }
