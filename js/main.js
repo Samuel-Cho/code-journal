@@ -188,8 +188,15 @@ var $deleteButton = document.querySelector('.delete-button');
 $deleteButton.addEventListener('click', deleteModal);
 
 function deleteModal(event) {
+  event.preventDefault();
   $modalView.className = 'modal-view';
-
 }
 
 var $modalView = document.querySelector('.modal-view');
+
+var $cancelButton = document.querySelector('.cancel-button');
+// var $confirmButton = document.querySelector('.confirm-button');
+
+$cancelButton.addEventListener('click', function (event) {
+  $modalView.className = 'hidden modal-view';
+});
