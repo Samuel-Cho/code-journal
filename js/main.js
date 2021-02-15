@@ -200,3 +200,9 @@ var $cancelButton = document.querySelector('.cancel-button');
 $cancelButton.addEventListener('click', function (event) {
   $modalView.className = 'hidden modal-view';
 });
+
+// $confirmButton.addEventListener('click', function(event) {
+//   // delete from data model
+//   for (var y = 0; y < data.entries.length; )
+//   // delete from DOM
+// });
