@@ -38,7 +38,7 @@ function saveNewEntry(event) {
     var editEntryNode = createEntry(data.editing);
     var $journalNodeList = document.querySelectorAll('.journal-entry');
     for (var x = 0; x < $journalNodeList.length; x++) {
-      var journalEntryId = $journalNodeList[x].getAttribute('data-entry-id');
+      journalEntryId = $journalNodeList[x].getAttribute('data-entry-id');
       if (journalEntryId === data.editing.entryId.toString()) {
         $journalNodeList[x].replaceWith(editEntryNode);
         break;
@@ -138,6 +138,7 @@ function viewEntries(event) {
   $viewEntryForm.className = 'hidden view-entry-form';
   $viewEntries.className = 'view-entries';
   $deleteButton.className = 'invisible delete-button';
+  $modalView.className = 'hidden modal-view';
   data.view = 'entries';
   $newEntryForm.reset();
   $urlImage.setAttribute('src', 'images/placeholder-image-square.jpg');
@@ -165,6 +166,7 @@ function viewEditForm(event) {
 }
 
 var dataEntryId = null;
+var journalEntryId = null;
 
 function editEntry(event) {
   if (event.target.matches('i')) {
@@ -207,8 +209,19 @@ $confirmButton.addEventListener('click', function (event) {
   for (var y = 0; y < data.entries.length; y++) {
     if (data.entries[y].entryId.toString() === dataEntryId) {
       data.entries.splice(y, 1);
-      // console.log(data.entries);
+      break;
     }
   }
-//   // delete from DOM
+  var $journalNodeList2 = document.querySelectorAll('.journal-entry');
+  for (var z = 0; z < $journalNodeList2.length; z++) {
+    journalEntryId = $journalNodeList2[z].getAttribute('data-entry-id');
+    if (journalEntryId === data.editing.entryId.toString()) {
+      $journalNodeList2[z].remove();
+      break;
+    }
+  }
+  $urlImage.setAttribute('src', 'images/placeholder-image-square.jpg');
+  $newEntryForm.reset();
+  data.editing = null;
+  viewEntries();
 });
