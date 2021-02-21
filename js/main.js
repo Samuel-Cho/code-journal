@@ -164,11 +164,13 @@ function viewEditForm(event) {
   $formHeading.textContent = 'Edit Entry';
 }
 
+var dataEntryId = null;
+
 function editEntry(event) {
   if (event.target.matches('i')) {
     viewEditForm();
     var closestEntry = event.target.closest('.journal-entry');
-    var dataEntryId = closestEntry.getAttribute('data-entry-id');
+    dataEntryId = closestEntry.getAttribute('data-entry-id');
     for (var j = 0; j < data.entries.length; j++) {
       if (data.entries[j].entryId.toString() === dataEntryId) {
         data.editing = data.entries[j];
@@ -195,14 +197,18 @@ function deleteModal(event) {
 var $modalView = document.querySelector('.modal-view');
 
 var $cancelButton = document.querySelector('.cancel-button');
-// var $confirmButton = document.querySelector('.confirm-button');
+var $confirmButton = document.querySelector('.confirm-button');
 
 $cancelButton.addEventListener('click', function (event) {
   $modalView.className = 'hidden modal-view';
 });
 
-// $confirmButton.addEventListener('click', function(event) {
-//   // delete from data model
-//   for (var y = 0; y < data.entries.length; )
+$confirmButton.addEventListener('click', function (event) {
+  for (var y = 0; y < data.entries.length; y++) {
+    if (data.entries[y].entryId.toString() === dataEntryId) {
+      data.entries.splice(y, 1);
+      // console.log(data.entries);
+    }
+  }
 //   // delete from DOM
-// });
+});
