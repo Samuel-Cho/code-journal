@@ -38,7 +38,7 @@ function saveNewEntry(event) {
     var editEntryNode = createEntry(data.editing);
     var $journalNodeList = document.querySelectorAll('.journal-entry');
     for (var x = 0; x < $journalNodeList.length; x++) {
-      var journalEntryId = $journalNodeList[x].getAttribute('data-entry-id');
+      journalEntryId = $journalNodeList[x].getAttribute('data-entry-id');
       if (journalEntryId === data.editing.entryId.toString()) {
         $journalNodeList[x].replaceWith(editEntryNode);
         break;
@@ -137,6 +137,8 @@ function viewEntryForm(event) {
 function viewEntries(event) {
   $viewEntryForm.className = 'hidden view-entry-form';
   $viewEntries.className = 'view-entries';
+  $deleteButton.className = 'invisible delete-button';
+  $modalView.className = 'hidden modal-view';
   data.view = 'entries';
   $newEntryForm.reset();
   $urlImage.setAttribute('src', 'images/placeholder-image-square.jpg');
@@ -159,14 +161,18 @@ var $formHeading = document.querySelector('.form-heading');
 function viewEditForm(event) {
   $viewEntryForm.className = 'view-entry-form';
   $viewEntries.className = 'hidden view-entries';
+  $deleteButton.className = 'delete-button';
   $formHeading.textContent = 'Edit Entry';
 }
+
+var dataEntryId = null;
+var journalEntryId = null;
 
 function editEntry(event) {
   if (event.target.matches('i')) {
     viewEditForm();
     var closestEntry = event.target.closest('.journal-entry');
-    var dataEntryId = closestEntry.getAttribute('data-entry-id');
+    dataEntryId = closestEntry.getAttribute('data-entry-id');
     for (var j = 0; j < data.entries.length; j++) {
       if (data.entries[j].entryId.toString() === dataEntryId) {
         data.editing = data.entries[j];
@@ -181,3 +187,41 @@ function editEntry(event) {
 }
 
 $ulEntries.addEventListener('click', editEntry);
+
+var $deleteButton = document.querySelector('.delete-button');
+$deleteButton.addEventListener('click', deleteModal);
+
+function deleteModal(event) {
+  event.preventDefault();
+  $modalView.className = 'modal-view';
+}
+
+var $modalView = document.querySelector('.modal-view');
+
+var $cancelButton = document.querySelector('.cancel-button');
+var $confirmButton = document.querySelector('.confirm-button');
+
+$cancelButton.addEventListener('click', function (event) {
+  $modalView.className = 'hidden modal-view';
+});
+
+$confirmButton.addEventListener('click', function (event) {
+  for (var y = 0; y < data.entries.length; y++) {
+    if (data.entries[y].entryId.toString() === dataEntryId) {
+      data.entries.splice(y, 1);
+      break;
+    }
+  }
+  var $journalNodeList2 = document.querySelectorAll('.journal-entry');
+  for (var z = 0; z < $journalNodeList2.length; z++) {
+    journalEntryId = $journalNodeList2[z].getAttribute('data-entry-id');
+    if (journalEntryId === data.editing.entryId.toString()) {
+      $journalNodeList2[z].remove();
+      break;
+    }
+  }
+  $urlImage.setAttribute('src', 'images/placeholder-image-square.jpg');
+  $newEntryForm.reset();
+  data.editing = null;
+  viewEntries();
+});
